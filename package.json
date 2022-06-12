@@ -4,6 +4,9 @@
   "type": "module",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "scrape": "ts-node-esm src/main.ts"
+  },
   "dependencies": {
     "puppeteer": "^14.3.0",
     "ts-node": "^10.8.1",
