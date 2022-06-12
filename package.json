@@ -4,6 +4,9 @@
   "type": "module",
   "license": "MIT",
   "private": true,
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "scrape": "ts-node-esm src/main.ts"
   },
