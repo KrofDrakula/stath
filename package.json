@@ -11,6 +11,10 @@
     "scrape": "ts-node-esm src/main.ts"
   },
   "dependencies": {
+    "@babel/core": "^7.18.2",
+    "babel-preset-solid": "^1.4.4",
+    "concurrently": "^7.2.1",
+    "parcel": "^2.6.0",
     "puppeteer": "^14.3.0",
     "ts-node": "^10.8.1",
     "typescript": "^4.7.3"
