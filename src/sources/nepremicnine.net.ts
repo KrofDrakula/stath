@@ -102,7 +102,7 @@ export const getImages = (frame: puppeteer.Frame): Promise<string[]> =>
     .then(() =>
       frame.$$eval("img.rsTmb", (images) =>
         images.map((thumb) =>
-          (thumb as HTMLImageElement).src?.replace("/thumbnails/", "")
+          (thumb as HTMLImageElement).src?.replace("/thumbnails/", "2/")
         )
       )
     )
