@@ -1,6 +1,6 @@
 # Stath
 
-![](https://tenor.com/bonTA.gif)
+![](https://c.tenor.com/mapePSMpO_wAAAAd/stath-stath-lets-flats.gif)
 
 A time-series scraping utility for observing realestate listings in Slovenia.
 
