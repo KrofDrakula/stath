@@ -1,12 +1,12 @@
 import puppeteer from "puppeteer";
-import { Listing } from "./interfaces.js";
+import { Listing } from "../interfaces.js";
 import {
   getListingData,
   getListingItems,
   getPageCount,
-  listingPages,
-} from "./sources/nepremicnine.net.js";
-import { sleep } from "./utilities.js";
+  listingPages
+} from "./nepremicnine.net.js";
+import { sleep } from "../utilities.js";
 
 export const captureListings = async (
   browser: puppeteer.Browser,
