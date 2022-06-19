@@ -27,12 +27,14 @@ export function* listingPages(
 }
 
 export const getListingItems = (frame: puppeteer.Frame) =>
-  frame.$$eval(
-    '[itemprop=item][itemtype="http://schema.org/Offer"] h2 a',
-    (links) => {
-      return links.map((a) => (a as HTMLAnchorElement).href);
-    }
-  );
+  frame
+    .$$eval(
+      '[itemprop=item][itemtype="http://schema.org/Offer"] h2 a',
+      (links) => {
+        return links.map((a) => (a as HTMLAnchorElement).href);
+      }
+    )
+    .catch(() => []);
 
 export const getTitle = (frame: puppeteer.Frame) =>
   frame
@@ -119,17 +121,11 @@ export const getListingData = async (
       getDescription(frame),
       getAttributes(frame),
       getContactDetails(frame),
-      getImages(frame),
+      getImages(frame)
     ]);
   return {
     url: frame.url(),
-    title,
-    price,
-    summary,
-    description,
-    contact,
-    attributes,
-    images,
-    snapshot: new Date().toISOString(),
+    data: { title, price, summary, description, contact, attributes, images },
+    snapshot: new Date().toISOString()
   };
 };
