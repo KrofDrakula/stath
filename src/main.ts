@@ -8,7 +8,7 @@ const list = `https://www.nepremicnine.net/oglasi-prodaja/ljubljana-okolica/hisa
 
 const browser = await puppeteer.launch();
 
-const data = await captureListings(browser, list);
+const data = await captureListings(browser, list, 100);
 
 await writeFile(
   join(

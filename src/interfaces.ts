@@ -1,5 +1,4 @@
 export interface ListingData {
-  snapshot: string;
   title: string;
   images: string[];
   attributes: string[];
@@ -12,4 +11,5 @@ export interface ListingData {
 export interface Listing {
   url: string;
   data: ListingData | null;
+  snapshot: string;
 }

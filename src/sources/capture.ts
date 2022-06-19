@@ -10,7 +10,8 @@ import { sleep } from "../utilities.js";
 
 export const captureListings = async (
   browser: puppeteer.Browser,
-  url: string
+  url: string,
+  maxListings?: number
 ): Promise<Listing[]> => {
   const data: Listing[] = [];
   const page = await browser.newPage();
@@ -27,12 +28,15 @@ export const captureListings = async (
       await page.goto(pageUrl, { waitUntil: "load" });
       listingUrls.push(...(await getListingItems(page.mainFrame())));
       pageNumber++;
+      if (maxListings !== undefined && listingUrls.length >= maxListings) break;
     }
   }
 
-  for (let i = 0; i < listingUrls.length; i++) {
+  for (let i = 0; i < (maxListings ?? listingUrls.length); i++) {
     await sleep(1000);
-    console.log(`Capturing listing ${i + 1} of ${listingUrls.length}`);
+    console.log(
+      `Capturing listing ${i + 1} of ${maxListings ?? listingUrls.length}`
+    );
     await page.goto(listingUrls[i], { waitUntil: "load" });
     try {
       data.push(await getListingData(page.mainFrame()));
