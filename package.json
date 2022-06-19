@@ -8,14 +8,19 @@
     "node": ">=16"
   },
   "scripts": {
-    "dev": "parcel src/frontend/index.html",
+    "serve-frontend": "parcel src/frontend/index.html",
+    "serve-api": "nodemon --exec ts-node-esm src/server/main.ts -w src/server",
+    "dev": "concurrently -k 'yarn run serve-api' 'yarn run serve-frontend' -n api,frontend",
     "scrape": "ts-node-esm src/main.ts"
   },
   "dependencies": {
     "@babel/core": "^7.18.2",
+    "@types/koa": "^2.13.4",
     "babel-preset-solid": "^1.4.4",
     "concurrently": "^7.2.1",
     "fast-diff": "^1.2.0",
+    "koa": "^2.13.4",
+    "nodemon": "^2.0.16",
     "parcel": "^2.6.0",
     "puppeteer": "^14.3.0",
     "solid-js": "^1.4.4",
