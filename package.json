@@ -15,7 +15,9 @@
   },
   "dependencies": {
     "@babel/core": "^7.18.2",
+    "@koa/router": "^10.1.1",
     "@types/koa": "^2.13.4",
+    "@types/koa__router": "^8.0.11",
     "babel-preset-solid": "^1.4.4",
     "concurrently": "^7.2.1",
     "fast-diff": "^1.2.0",
